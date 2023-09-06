@@ -1,6 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'
+const btnVarients = {
+
+  visible: {
+    x: [9, -30, 30, -30, 30, 0], // keyframe
+    transition: {
+      delay: 2
+    }
+  },
+  hover: {
+    scale: 1.1, // key freme
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255, 255,255)",
+    transition: {
+      yoyo: 10, // repeating keyfreame 10 times frame repet from it's original state(1) scale
+    }
+  }
+}
 const Home = () => {
   return (
     <motion.div
@@ -22,11 +39,14 @@ const Home = () => {
       </motion.h2>
       <Link to="/base">
         <motion.button
-          whileHover={{
-            scale: 1.1,
-            textShadow: "0px 0px 8px rgb(255,255,255)",
-            boxShadow: "0px 0px 8px rgb(255, 255,255)"
-          }}
+          variants={btnVarients}
+          animate="visible"
+          whileHover={"hover"}
+        // whileHover={{
+        //   scale: 1.1,
+        //   textShadow: "0px 0px 8px rgb(255,255,255)",
+        //   boxShadow: "0px 0px 8px rgb(255, 255,255)"
+        // }}
 
         >
           Create Your Pizza
