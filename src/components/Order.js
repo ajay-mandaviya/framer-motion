@@ -30,10 +30,14 @@ const childVariants = {
   }
 }
 
-const Order = ({ pizza }) => {
+
+const Order = ({ pizza, setShowModal }) => {
   const [showTitle, setShowTitle] = React.useState(true)
 
-  setTimeout(() => { setShowTitle(false) }, 4000)
+  setTimeout(() => {
+    setShowTitle(false)
+    setShowModal(true)
+  }, 4000)
 
 
   return (
