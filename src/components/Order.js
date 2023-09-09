@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 const containerVariants = {
   hidden: { // initial key animation
     x: "100vw",
@@ -31,13 +31,24 @@ const childVariants = {
 }
 
 const Order = ({ pizza }) => {
+  const [showTitle, setShowTitle] = React.useState(true)
+
+  setTimeout(() => { setShowTitle(false) }, 4000)
+
+
   return (
     <motion.div className="container order"
       variants={containerVariants}
       initial={"hidden"}
       animate={"visible"}
     >
+
       <h2>Thank you for your order :)</h2>
+      {/* <AnimatePresence>
+        {showTitle && <motion.h2
+          exit={{ y: -1000 }}
+        >Thank you for your order :)</motion.h2>}
+      </AnimatePresence> */}
       <motion.p variants={childVariants} >You ordered a {pizza.base} pizza with:</motion.p>
       <motion.div variants={childVariants}>
         {pizza.toppings.map(topping => <div key={topping}>{topping}</div>)}
@@ -48,3 +59,6 @@ const Order = ({ pizza }) => {
 }
 
 export default Order;
+
+
+//Using AnimatePresence we must wrap chil to motion and exit animation prop in motion 

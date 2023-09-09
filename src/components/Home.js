@@ -18,19 +18,36 @@ const btnVarients = {
     }
   }
 }
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { delay: 1.3, duration: 1.3 }
+  },
+  exit: {
+    x: "-100vw",
+    transition: { base: "baseInOut" }
+  }
+}
 const Home = () => {
   return (
     <motion.div
       className="home container"
-      initial={{
-        opacity: 0
-      }}
-      animate={{ opacity: 1 }}
-      transition={{
-        delay: 1.5,
-        duration: 5,
-
-      }}
+      variants={containerVariants}
+      initial={"hidden"}
+      animate={"visible"}
+      exit={"exit"}
+    // initial={{
+    //   opacity: 0
+    // }}
+    // animate={{ opacity: 1 }}
+    // transition={{
+    //   delay: 1.5,
+    //   duration: 5,
+    // }}
     >
       <motion.h2 animate={{
 

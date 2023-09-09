@@ -12,14 +12,29 @@ const containerVariants = {
     transition: { type: "spring", delay: 1 }
   },
 }
+
+const containerVariantsPage = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { delay: 1.3, duration: 1.3 }
+  },
+  exit: {
+    x: "-100vw",
+    transition: { base: "baseInOut" }
+  }
+}
 const Toppings = ({ addTopping, pizza }) => {
   let toppings = ['mushrooms', 'peppers', 'onions', 'olives', 'extra cheese', 'tomatoes'];
 
   return (
     <motion.div className="toppings container"
-      variants={containerVariants}
+      variants={containerVariantsPage}
       initial={"hidden"}
       animate={"visible"}
+      exit={"exit"}
     >
 
       <h3>Step 2: Choose Toppings</h3>

@@ -14,7 +14,10 @@ const containerVariants = {
     x: 0,
     transition: { type: "spring", delay: 1 }
   },
-
+  exit: {
+    x: "-100vw",
+    transition: { base: "baseInOut" }
+  }
 }
 
 const nextVarients = {
@@ -50,6 +53,7 @@ const Base = ({ addBase, pizza }) => {
       variants={containerVariants}
       initial="hidden"  // take initial animation from containerVariants hidden
       animate={"visible"} // take animation from containerVariants visible 
+      exit={"exit"}
     // transition={{ type: "spring", delay: 1 }}
     >
 
