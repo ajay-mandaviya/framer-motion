@@ -23,11 +23,13 @@ const pathVarients = {
     opacity: 0,
     pathLength: 0,
     // strokeOpacity : 0,
+    // patthOffset : 1,
   },
   visible: {
     opacity: 1,
     pathLength: 1,
     // strokeOpacity : 0,
+    // patthOffset : 0,
     transition: {
       duration: 2,
       ease: "easeInOut"
